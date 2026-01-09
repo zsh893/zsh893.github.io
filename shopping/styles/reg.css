@@ -1,0 +1,47 @@
+/* ===== reg.css 用户注册页专属样式 ===== */
+/* 头部导航样式 与全站统一 */
+.logo {
+    max-height: 40px;
+    width: auto;
+    margin-left: 0;
+}
+.header {
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+    background-color: #fff;
+}
+.nav-menu {
+    margin-top: 8px;
+}
+.nav-menu a {
+    margin-right: 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+.nav-menu a:hover {
+    color: #e64340;
+}
+
+/* 注册核心区域样式 */
+.main {
+    padding: 40px 0; /* 优化注册区域上下间距 */
+}
+
+/* 注册页专属样式：错误提示 */
+.reg-tip {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    display: none;
+}
+
+/* 页脚样式 与全站统一 */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}

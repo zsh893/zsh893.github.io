@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐享购 - 专业综合电商平台</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <header class="container header-top">
+        <div class="logo-area">
+            <a href="index.html">
+                <img src="images/logo.png" alt="乐享购Logo" class="small-logo">
+            </a>
+            <h1 class="shop-name">乐享购</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">首页</a>
+            <a href="#digital">数码产品</a>
+            <a href="#clothes">服装鞋帽</a>
+            <a href="#home">家居用品</a>
+            <a href="#cosmetics">美妆护肤</a>
+            <a href="#food">食品生鲜</a>
+            <a href="#">关于我们</a>
+        </nav>
+        <div class="user-entry" id="userAuthArea">
+            <a href="login.html">登录</a>
+            <a href="reg.html">注册</a>
+            <a href="cart.html" class="cart-icon">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5>产品分类</h5>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#digital" class="list-group-item list-group-item-action">数码产品</a>
+                            <a href="#clothes" class="list-group-item list-group-item-action">服装鞋帽</a>
+                            <a href="#home" class="list-group-item list-group-item-action">家居用品</a>
+                            <a href="#cosmetics" class="list-group-item list-group-item-action">美妆护肤</a>
+                            <a href="#food" class="list-group-item list-group-item-action">食品生鲜</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h4 class="mb-3">热门商品</h4>
+                    <div class="row" id="productList"></div>
+                    <div class="pagination-area">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination" id="pagination"></ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright-info">© 2026 乐享购 版权所有 | 联系电话：400-123-4567</p>
+            <p class="copyright-info">计科241 24136137 周诗涵</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="json/productList.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

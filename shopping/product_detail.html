@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情 - 乐享购</title>
+    <!-- 引入外部资源 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <!-- 引入全局公共样式 - 全站复用 -->
+    <link rel="stylesheet" href="styles/base.css">
+    <!-- 引入商品详情页专属样式 -->
+    <link rel="stylesheet" href="styles/product.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="container header-top">
+        <div class="logo-area">
+            <a href="index.html"><img src="images/logo.png" alt="乐享购Logo" class="small-logo"></a>
+            <h1 class="shop-name">乐享购</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">首页</a>
+            <a href="#digital">数码产品</a>
+            <a href="#clothes">服装鞋帽</a>
+            <a href="#home">家居用品</a>
+            <a href="#cosmetics">美妆护肤</a>
+            <a href="#">关于我们</a>
+        </nav>
+        <div class="user-entry" id="userAuthArea">
+            <a href="login.html">登录</a>
+            <a href="reg.html">注册</a>
+            <a href="cart.html" class="cart-icon">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- 商品详情主体 -->
+    <main class="container">
+        <div class="product-detail" id="productDetail">
+            <div class="text-center py-5">
+                <i class="fa fa-spinner fa-spin fa-3x mb-3"></i>
+                <p>正在加载商品详情...</p>
+            </div>
+        </div>
+        <div class="toast" id="toast"></div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright-info">© 2026 乐享购 版权所有 | 联系电话：400-123-4567</p>
+            <p class="copyright-info">计科241 24136137 周诗涵</p>
+        </div>
+    </footer>
+
+    <!-- 引入外部JS+商品数据+详情脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="json/productDetailData.js"></script>
+    <script src="scripts/product.js"></script>
+</body>
+</html>

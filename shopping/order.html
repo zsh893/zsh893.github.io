@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单确认 - 电商网站</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <!-- 引入全局公共样式 - 全站复用 -->
+    <link rel="stylesheet" href="styles/base.css">
+    <!-- 引入订单确认页专属样式 -->
+    <link rel="stylesheet" href="styles/order.css">
+</head>
+<body>
+    <!-- 头部 - 布局和购物车页保持一致 -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <a href="index.html"><img src="images/logo.png" alt="电商网站Logo" class="logo"></a>
+                </div>
+                <div class="col-md-7">
+                    <nav class="nav-menu">
+                        <a href="index.html">首页</a>
+                        <a href="#">数码产品</a>
+                        <a href="#">服装鞋帽</a>
+                        <a href="#">家居用品</a>
+                        <a href="#">美妆护肤</a>
+                        <a href="#">关于我们</a>
+                    </nav>
+                </div>
+                <div class="col-md-3 text-right" id="userAuthArea">
+                    <a href="login.html" class="me-2">登录</a>
+                    <a href="reg.html" class="me-2">注册</a>
+                    <a href="cart.html" class="cart-icon ms-2">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="cart-badge" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 订单确认内容 -->
+    <main class="main">
+        <div class="container">
+            <h3 class="mb-4">订单确认</h3>
+            
+            <!-- 订单信息 -->
+            <div class="order-info">
+                <h5>订单商品</h5>
+                <hr>
+                <div id="orderGoods">
+                    <!-- 仅渲染购物车勾选的商品 -->
+                </div>
+                <hr>
+                <div class="text-right">
+                    <p class="mb-1">订单合计：<span class="product-price fs-5" id="orderTotal">¥0</span></p>
+                </div>
+            </div>
+
+            <!-- 收货地址（卡片形式） -->
+            <div class="order-info" id="addressSection">
+                <h5>收货地址</h5>
+                <hr>
+                <!-- 地址卡片列表 -->
+                <div id="addressList" class="row g-3">
+                    <!-- 动态渲染地址卡片 -->
+                </div>
+                <!-- 新增地址按钮 -->
+                <button class="btn btn-outline-secondary mt-3" onclick="showAddAddress()">新增地址</button>
+            </div>
+
+            <!-- 支付方式 -->
+            <div class="order-info" id="paymentSection">
+                <h5>支付方式</h5>
+                <hr>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="payment" id="wechat" checked>
+                    <label class="form-check-label" for="wechat">微信支付</label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="payment" id="alipay">
+                    <label class="form-check-label" for="alipay">支付宝支付</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment" id="card">
+                    <label class="form-check-label" for="card">银行卡支付</label>
+                </div>
+            </div>
+
+            <!-- 提交订单 -->
+            <div class="text-right" id="submitSection">
+                <button class="btn btn-primary btn-lg" onclick="submitOrder()">确认下单</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 新增地址模态框（Bootstrap模态框） -->
+    <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addAddressModalLabel">新增收货地址</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addressForm">
+                        <div class="mb-3">
+                            <label class="form-label">收货人</label>
+                            <input type="text" class="form-control" id="receiverName" placeholder="请输入收货人姓名" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">联系电话</label>
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="请输入联系电话" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">详细地址</label>
+                            <textarea class="form-control" id="addressDetail" rows="3" placeholder="请输入详细收货地址" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="saveAddress()">保存地址</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 订单提交成功模态框 -->
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-labelledby="orderSuccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderSuccessModalLabel">订单提交成功</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="orderSuccessContent">
+                    <!-- 显示订单金额和收货信息 -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 电商网站 版权所有 | 联系电话：400-123-4567</p>
+            <p>计科241 24136137 周诗涵</p>
+        </div>
+    </footer>
+
+    <!-- 引入外部JS+订单数据+订单脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="json/orderData.js"></script>
+    <script src="scripts/order.js"></script>
+</body>
+</html>

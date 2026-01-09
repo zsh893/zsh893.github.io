@@ -1,0 +1,47 @@
+/* ===== login.css 登录页面专属样式 ===== */
+/* 头部导航样式 */
+.logo {
+    max-height: 40px;
+    width: auto;
+    margin-left: 0;
+}
+.header {
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+    background-color: #fff;
+}
+.nav-menu {
+    margin-top: 8px;
+}
+.nav-menu a {
+    margin-right: 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+.nav-menu a:hover {
+    color: #e64340;
+}
+
+/* 登录核心区域样式 */
+.main {
+    padding: 40px 0; /* 优化登录区域上下间距 */
+}
+
+/* 登录页专属提示样式 */
+.login-tip {
+    color: #dc3545; /* 错误提示红色 */
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    display: none; /* 默认隐藏提示 */
+}
+
+/* 页脚样式 */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}
